@@ -1,0 +1,22 @@
+# DermaTriage
+
+A mobile-first web app that lets users take a photo of their skin with their iPhone camera and receive a cautious, AI-powered triage assessment.
+
+## Stack
+- Next.js 16 App Router, TypeScript, Tailwind CSS v4
+- OpenAI GPT-4o-mini for image analysis (`app/api/analyze/route.ts`)
+- Supabase optional for auth/database/storage (`lib/supabase.ts`)
+- Deployed on Vercel
+
+## Key files
+- `app/page.tsx` — main UI, handles capture + results
+- `components/CameraCapture.tsx` — camera preview, capture, retake/confirm
+- `app/api/analyze/route.ts` — OpenAI vision analysis endpoint
+- `lib/supabase.ts` — Supabase client (only initialised when env vars present)
+
+## Rules
+- Keep the UI mobile-first, simple, and high-contrast.
+- Never expose `OPENAI_API_KEY` client-side; route all analysis through the API.
+- Always include the medical disclaimer: this is not a diagnosis.
+- Use Vercel Preview Deployments for every branch; disable Preview Deployment Authentication in Vercel project settings.
+- Prefer functional React components and TypeScript strict types.
